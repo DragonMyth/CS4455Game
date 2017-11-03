@@ -6,12 +6,12 @@ using System;
 public class flock : MonoBehaviour {
 
 
-	public float speed = 0.001f;
+	public float speed = 0.1f;
 	float rotationSpeed = 4.0f;
 	Vector3 averageHeading;
 	Vector3 averagePosition;
 	float neighbourDistance = 3.0f;
-	float speedLimit = 3f;
+	float speedLimit = 6f;
 	// Use this for initialization
 	void Start () {
 		speed = UnityEngine.Random.Range (0.5f, 1);
@@ -19,7 +19,7 @@ public class flock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (UnityEngine.Random.Range (0, 5) < 1)
+		if (UnityEngine.Random.Range (0, 4) < 1)
 			ApplyRules ();
 		transform.Translate (0,0,Time.deltaTime*speed);
 	}
@@ -30,7 +30,7 @@ public class flock : MonoBehaviour {
 
 		Vector3 vcenter = Vector3.zero;
 		Vector3 vavoid = Vector3.zero;
-		float gSpeed = 0.1f;
+		float gSpeed = .1f;
 
 		Vector3 goalPos = GlobalFlockingManager.goalPos;
 

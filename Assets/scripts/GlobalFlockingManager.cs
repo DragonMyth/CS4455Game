@@ -21,19 +21,27 @@ public class GlobalFlockingManager : MonoBehaviour {
 				              Random.Range (-tankSize, tankSize));
 			allFish [i] = (GameObject)Instantiate (fishPrefab, pos, Quaternion.identity); 
 		}
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Random.Range (0, 10000) < 50) {
-			goalPos = new Vector3 (Random.Range (-tankSize, tankSize),
-				Random.Range (-tankSize, tankSize),
-				Random.Range (-tankSize, tankSize));
-			
-			GameObject goalVis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-			goalVis.transform.position = goalPos;
-			Destroy (goalVis,5f);
-		
-		}
+
+		GameObject temp = GameObject.Find("Player");
+
+		goalPos = temp.transform.position;
+
+
+//		if (Random.Range (0, 10000) < 50) {
+//			goalPos = new Vector3 (Random.Range (-tankSize, tankSize),
+//				Random.Range (-tankSize, tankSize),
+//				Random.Range (-tankSize, tankSize));
+//			
+//			GameObject goalVis = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+//			goalVis.transform.position = goalPos;
+//			Destroy (goalVis,5f);
+//		
+//		}
 	}
 }
