@@ -21,7 +21,7 @@ public class simplePlayerControl : MonoBehaviour {
 		float lv = Input.GetAxisRaw("Vertical");
 
 
-//		Debug.Log (lv);
+		//Debug.Log (cam);
 
 		this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right*lh*speed);
 
