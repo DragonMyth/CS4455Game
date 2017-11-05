@@ -6,7 +6,10 @@ using UnityEditor;
 public class simplePlayerControl : MonoBehaviour {
 
 
-	public float speed  = 10f; 
+	public float speed  = 10f;
+
+    public bool isPaused;
+    public GameObject inGameMenu;
 	// Use this for initialization
 	void Start () {
 		
@@ -23,11 +26,37 @@ public class simplePlayerControl : MonoBehaviour {
 
 		//Debug.Log (cam);
 
-		this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right*lh*speed);
+		this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right*lh*speed) * Time.timeScale;
 
 		Debug.Log (this.transform.position);
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        {
+            inGameMenu.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        {
+            inGameMenu.SetActive(false);
+            isPaused = false;
+            Time.timeScale = 1f;
+        }
 //		this.transform.Translate (cam.transform.forward*lv*speed*Time.deltaTime);
 
-
 	}
+    public void Pause()
+    {
+        inGameMenu.SetActive(true);
+        isPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        inGameMenu.SetActive(false);
+        isPaused = false;
+        Time.timeScale = 1f;
+    }
+
 }
