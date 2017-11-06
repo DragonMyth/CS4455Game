@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: ac75996e8415e4f01a89f3374fe2ddf2,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -220,6 +221,11 @@ Prefab:
       propertyPath: m_Name
       value: tail
       objectReference: {fileID: 0}
+    - target: {fileID: 114645824745693146, guid: fb32b02442f2f4aa5a59e1cc6d0f393e,
+        type: 2}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb32b02442f2f4aa5a59e1cc6d0f393e, type: 2}
   m_IsPrefabParent: 0
@@ -328,6 +334,14 @@ Prefab:
         type: 2}
       propertyPath: m_ClearFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583065451271992, guid: c18fcc9c1f5d64eacb1230ceae9b87fa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583065451271992, guid: c18fcc9c1f5d64eacb1230ceae9b87fa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c18fcc9c1f5d64eacb1230ceae9b87fa, type: 2}

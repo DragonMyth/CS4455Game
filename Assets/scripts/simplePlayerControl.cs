@@ -24,7 +24,7 @@ public class simplePlayerControl : MonoBehaviour {
 
 		this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right*lh*speed);
 
-		Debug.Log (this.transform.position);
+//		Debug.Log (this.transform.position);
 //		this.transform.Translate (cam.transform.forward*lv*speed*Time.deltaTime);
 
 
