@@ -21,7 +21,7 @@ public class simpleFishLocomotionControl : MonoBehaviour {
 
 			Vector3 bodyPartSize = bodyPart.GetComponent <Collider> ().bounds.size;
 
-			Debug.Log (bodyPartSize);
+			//Debug.Log (bodyPartSize);
 		}
 
 

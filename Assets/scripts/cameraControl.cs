@@ -18,11 +18,20 @@ public class cameraControl : MonoBehaviour {
 		currentRotation.x = Mathf.Repeat(currentRotation.x, 360);
 		currentRotation.y = Mathf.Clamp(currentRotation.y, -maxYAngle, maxYAngle);
 
-		this.transform.RotateAround (player.transform.position,-this.transform.right,currentRotation.y);
-		this.transform.RotateAround (player.transform.position,Vector3.up,currentRotation.x);
+        
 
-		if (Input.GetMouseButtonDown(0))
-			Cursor.lockState = CursorLockMode.Locked;
+        if(!player.GetComponentsInParent<simplePlayerControl>()[0].isPaused)
+        {
+            this.transform.RotateAround(player.transform.position, -this.transform.right, currentRotation.y);
+            this.transform.RotateAround(player.transform.position, Vector3.up, currentRotation.x);
+        }
+
+		if (player.GetComponentsInParent<simplePlayerControl>()[0].isPaused)
+        {
+            Debug.Log("locked");
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+			
 	}
 
 }

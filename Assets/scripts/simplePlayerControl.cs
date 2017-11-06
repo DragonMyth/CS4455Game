@@ -23,7 +23,9 @@ public class simplePlayerControl : MonoBehaviour {
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
 
-        this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
+        this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right * lh * speed) * Time.timeScale;
+
+        //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
