@@ -7,11 +7,13 @@ public class flock : MonoBehaviour {
 
 
 	public float speed = 0.1f;
+	public float neighbourDistance = 1.0f;
+
 	float rotationSpeed = 4.0f;
 	Vector3 averageHeading;
 	Vector3 averagePosition;
-	float neighbourDistance = 3.0f;
 	float speedLimit = 6f;
+	public int speciesKind = 0;
 	// Use this for initialization
 	void Start () {
 		speed = UnityEngine.Random.Range (0.5f, 1);
@@ -26,13 +28,19 @@ public class flock : MonoBehaviour {
 
 	void ApplyRules(){
 		GameObject[] gos;
-		gos = GlobalFlockingManager.allFish;
+		Hashtable allGos = GlobalFlockingManager.allFishTable;
+
+
+
+		gos = allGos [speciesKind] as GameObject[];
 
 		Vector3 vcenter = Vector3.zero;
 		Vector3 vavoid = Vector3.zero;
 		float gSpeed = .1f;
 
 		Vector3 goalPos = GlobalFlockingManager.goalPos;
+
+//		Vector3 goalPos = Vector3.zero;
 
 		float dist;
 		int groupSize = 0;
@@ -50,7 +58,7 @@ public class flock : MonoBehaviour {
 				flock anotherFlock = go.GetComponent <flock> ();
 				gSpeed += anotherFlock.speed;
 			}
-			
+
 		}
 
 		if (groupSize > 0) {
@@ -64,6 +72,10 @@ public class flock : MonoBehaviour {
 					rotationSpeed * Time.deltaTime);
 			}
 		}
+	
 	}
+
+
+
 
 }
