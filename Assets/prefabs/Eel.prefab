@@ -95,9 +95,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4983722197566104}
-  - component: {fileID: 95257963747191204}
   - component: {fileID: 114851904161479824}
   - component: {fileID: 114592625330809728}
+  - component: {fileID: 54848163859035982}
   m_Layer: 0
   m_Name: Eel
   m_TagString: Untagged
@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 1780141956089202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.828037, y: -21.034504, z: -2.4590137}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4743524075293188}
   m_Father: {fileID: 0}
@@ -561,6 +561,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!54 &54848163859035982
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780141956089202}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &54875813519058824
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -648,23 +663,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95257963747191204
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780141956089202}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9983eab90e0f540358450d46a4a19b0a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114592625330809728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -676,8 +674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c27b3d315f64f0088255e294820fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRotAngle: 20
-  rotFreq: 5
+  maxRotAngle: 10
+  rotFreq: 10
   phaseOff: 5
 --- !u!114 &114851904161479824
 MonoBehaviour:
@@ -690,6 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801cf70af31b140c699e42a7644f2d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 3
   neighbourDistance: 3
   speciesKind: 1
+  minRepulseDist: 5

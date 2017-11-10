@@ -11,12 +11,16 @@ public class simplePlayerControl : MonoBehaviour {
     public bool isPaused;
     public GameObject inGameMenu;
 	// Use this for initialization
+
+	GameObject playerObj;
+
 	void Start () {
-		
+		playerObj = transform.GetChild (0).gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 
 		Camera cam = GetComponentInChildren<Camera>();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using NUnit.Framework;
 
 public class Flock : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class Flock : MonoBehaviour {
 	public float speed = 0.1f;
 	public float neighbourDistance = 1.0f;
 	public int speciesKind = 0;
+	public float minRepulseDist = 1.0f;
 
 
 	FlockingGroup flockGroup;
@@ -49,17 +51,16 @@ public class Flock : MonoBehaviour {
 
 		foreach (GameObject go in gos) {
 			dist = Vector3.Distance (go.transform.position, this.transform.position);
-//			if (dist <= neighbourDistance) {
+
 			vcenter += go.transform.position;
 			groupSize++;
 
-			if (dist < 1.0f) {
+			if (dist < minRepulseDist) {
 				vavoid += (this.transform.position - go.transform.transform.position);
 			}
 
 			Flock anotherFlock = go.GetComponent <Flock> ();
 			gSpeed += anotherFlock.speed;
-//			}
 
 		}
 
