@@ -951,7 +951,6 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-
   m_Text: 'Programmer: Binchen Wu
 
     UX Design: Jiazheng Sun
@@ -963,7 +962,7 @@ MonoBehaviour:
     UI: Ziming He
 
 
-    Other Source: Unity Tutorial, Adobe Maximo Animations'
+    Other Source: Unity Tutorial, Adobe Maximo Animations, Unity Standard Assets'
 --- !u!222 &662383714
 CanvasRenderer:
   m_ObjectHideFlags: 0
