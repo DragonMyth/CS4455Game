@@ -50,11 +50,11 @@ public class GlobalFlockingManager : MonoBehaviour {
 
 			float dist = Vector3.Distance (groupCenter, player.transform.position);
 
-			Debug.Log ("Dist is :" + dist);
+//			Debug.Log ("Dist is :" + dist);
 
 			if (dist > tankSize) {
 
-				Debug.Log ("DElete COntent!!");
+//				Debug.Log ("DElete COntent!!");
 
 				deleteGroupContent (flockGroup);
 				toBeDeletedIdx [groupIdx] = 1;
@@ -94,7 +94,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 		Vector3 playerPos = player.transform.position;
 
 		Vector3 groupSpawnCenter = playerPos + new Vector3 (Random.Range (-this.tankSize, this.tankSize),
-			Random.Range (-5, 5),
+			Random.Range (-10, 10),
 			Random.Range (-this.tankSize, this.tankSize));
 
 		int fishKindId = Random.Range (0, this.allFishKinds.Length);

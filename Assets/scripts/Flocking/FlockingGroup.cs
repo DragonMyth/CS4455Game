@@ -18,11 +18,12 @@ public class FlockingGroup {
 		instantiateFlocks (spawnCenter,spawnRadius);
 
 	}
-		
+
+
 	void instantiateFlocks(Vector3 spawnCenter, int spawnRadius){
 		for (int i = 0; i < this.numInstance; i++) {
 			Vector3 spawnPos = spawnCenter + new Vector3 (Random.Range (-spawnRadius, spawnRadius),
-				Random.Range (-spawnRadius, spawnRadius),
+				Mathf.Min(3,Random.Range (-spawnRadius, spawnRadius)),
 				Random.Range (-spawnRadius, spawnRadius));
 			this.groupFlockSpawnPoints [i] = spawnPos;
 		} 

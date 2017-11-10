@@ -57,6 +57,8 @@ GameObject:
   - component: {fileID: 33981456967092056}
   - component: {fileID: 135111308257403356}
   - component: {fileID: 23992651802433754}
+  - component: {fileID: 54847654351625298}
+  - component: {fileID: 114184154459727370}
   m_Layer: 0
   m_Name: FakePlayer
   m_TagString: Untagged
@@ -71,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104772361519424}
   m_LocalRotation: {x: 0.13761744, y: 0, z: 0, w: 0.9904855}
-  m_LocalPosition: {x: -0.2, y: 0.78, z: -1.96}
+  m_LocalPosition: {x: -0.2, y: 1.16, z: -2.71}
   m_LocalScale: {x: 1, y: 1.45, z: 1}
   m_Children: []
   m_Father: {fileID: 4793023974170354}
@@ -84,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1302933986249426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.42, y: -5.65562, z: -5.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4957005370033870}
@@ -113,8 +115,8 @@ Camera:
   m_GameObject: {fileID: 1104772361519424}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0.5640975, b: 0.7941176, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -181,6 +183,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484240405427304}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54847654351625298
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484240405427304}
+  serializedVersion: 2
+  m_Mass: 1e+9
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!81 &81121413382699846
 AudioListener:
   m_ObjectHideFlags: 1
@@ -188,6 +205,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104772361519424}
   m_Enabled: 1
+--- !u!114 &114184154459727370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484240405427304}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7489585a14094a9fafaacaae1034293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114247600464268910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,6 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b5a527240384af8a3d223315d5d5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.1
+  isPaused: 0
+  inGameMenu: {fileID: 0}
 --- !u!114 &114297213697834172
 MonoBehaviour:
   m_ObjectHideFlags: 1
