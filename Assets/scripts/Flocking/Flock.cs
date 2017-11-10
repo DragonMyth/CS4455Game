@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class flock : MonoBehaviour {
+public class Flock : MonoBehaviour {
 
 
 	public float speed = 0.1f;
+	public float neighbourDistance = 1.0f;
+	public int speciesKind = 0;
+
+
+	FlockingGroup flockGroup;
+
 	float rotationSpeed = 4.0f;
 	Vector3 averageHeading;
 	Vector3 averagePosition;
-	float neighbourDistance = 3.0f;
 	float speedLimit = 6f;
+
 	// Use this for initialization
 	void Start () {
 		speed = UnityEngine.Random.Range (0.5f, 1);
@@ -19,38 +25,42 @@ public class flock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (UnityEngine.Random.Range (0, 4) < 1)
+		if (this.flockGroup != null && UnityEngine.Random.Range (0, 4) < 1)
 			ApplyRules ();
 		transform.Translate (0,0,Time.deltaTime*speed);
 	}
 
 	void ApplyRules(){
 		GameObject[] gos;
-		gos = GlobalFlockingManager.allFish;
+
+		gos = this.flockGroup.getFlocksInGroup ();
+//		Debug.Log (gos.Length);
 
 		Vector3 vcenter = Vector3.zero;
 		Vector3 vavoid = Vector3.zero;
 		float gSpeed = .1f;
 
-		Vector3 goalPos = GlobalFlockingManager.goalPos;
+
+		Vector3 goalPos = this.flockGroup.currGoal ();
+
 
 		float dist;
 		int groupSize = 0;
 
 		foreach (GameObject go in gos) {
 			dist = Vector3.Distance (go.transform.position, this.transform.position);
-			if (dist <= neighbourDistance) {
-				vcenter += go.transform.position;
-				groupSize++;
+//			if (dist <= neighbourDistance) {
+			vcenter += go.transform.position;
+			groupSize++;
 
-				if (dist < 1.0f) {
-					vavoid += (this.transform.position - go.transform.transform.position);
-				}
-
-				flock anotherFlock = go.GetComponent <flock> ();
-				gSpeed += anotherFlock.speed;
+			if (dist < 1.0f) {
+				vavoid += (this.transform.position - go.transform.transform.position);
 			}
-			
+
+			Flock anotherFlock = go.GetComponent <Flock> ();
+			gSpeed += anotherFlock.speed;
+//			}
+
 		}
 
 		if (groupSize > 0) {
@@ -64,6 +74,20 @@ public class flock : MonoBehaviour {
 					rotationSpeed * Time.deltaTime);
 			}
 		}
+	
 	}
+
+	public void setFlockGroup(FlockingGroup flockGroup){
+		this.flockGroup = flockGroup; 
+
+	}
+
+
+	public FlockingGroup getFlockingGroup(){
+
+		return this.flockGroup;
+	}
+
+
 
 }

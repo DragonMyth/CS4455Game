@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraControl : MonoBehaviour {
+public class CameraControl : MonoBehaviour {
 
 	public float sensitivity = 0.001f;
 	public float maxYAngle = 80f;
@@ -24,13 +24,10 @@ public class cameraControl : MonoBehaviour {
         {
             this.transform.RotateAround(player.transform.position, -this.transform.right, currentRotation.y);
             this.transform.RotateAround(player.transform.position, Vector3.up, currentRotation.x);
+			Cursor.lockState = CursorLockMode.Locked;
         }
 
-		if (player.GetComponentsInParent<simplePlayerControl>()[0].isPaused)
-        {
-            Debug.Log("locked");
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+
 			
 	}
 
