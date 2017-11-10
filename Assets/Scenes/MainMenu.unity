@@ -951,9 +951,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
   m_Text: 'Programmer: Binchen Wu
 
     UX Design: Jiazheng Sun
+=======
+  m_Text: 'Binchen Hu
+>>>>>>> origin/alt_menu
 
     Animation: Jingyi Li
 
