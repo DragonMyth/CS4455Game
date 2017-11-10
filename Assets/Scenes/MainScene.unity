@@ -2058,10 +2058,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1cac80929074387b54d65b30e39a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefabs:
+  allFishKinds:
   - {fileID: 1936999469267300, guid: fb32b02442f2f4aa5a59e1cc6d0f393e, type: 2}
   - {fileID: 1587845617853448, guid: 7058f1a66e60a41638300904d04403ed, type: 2}
-  tankSize: 5
+  - {fileID: 1780141956089202, guid: 4d3de800604a341658c3ac08cdd8f267, type: 2}
+  player: {fileID: 532137459}
+  tankSize: 20
+  maxGroup: 5
+  numInstance: 20
 --- !u!4 &1839740499
 Transform:
   m_ObjectHideFlags: 0

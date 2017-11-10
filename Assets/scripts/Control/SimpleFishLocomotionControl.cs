@@ -10,7 +10,9 @@ public class SimpleFishLocomotionControl : MonoBehaviour {
 //	GameObject[] bodyParts;
 	public float maxRotAngle = 45;
 	public float rotFreq = 10;
+	public float phaseOff = 0;
 	int childCount;
+
 	void Start () {
 		childCount = this.transform.childCount;
 	}
