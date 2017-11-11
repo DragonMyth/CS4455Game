@@ -1,7 +1,14 @@
-﻿using System.Collections;
+﻿//Team MacroHard:
+//	  Binchen Hu, bhu77@gatech.edu, bhu77
+//    Jiazheng Sun, jsun303 @gatech.edu, jsun303
+//    Jingyi Li, jinli647 @gatech.edu, jinli647
+//    Yunbo Zhang, yzhang3027 @gatech.edu, yzhang3027
+//    Ziming He, zhe66 @gatech.edu, zhe66
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 public class simplePlayerControl : MonoBehaviour {
 

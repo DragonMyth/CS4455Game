@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Unity Standard Assets
+
+using UnityEngine;
 using System.Collections;
 
 public class ApplicationManager : MonoBehaviour {
