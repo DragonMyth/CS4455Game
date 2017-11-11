@@ -1,4 +1,3 @@
-//Unity Standard Assets
 using UnityEngine;
 
 public class TiltWindow : MonoBehaviour

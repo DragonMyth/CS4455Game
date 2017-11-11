@@ -1,6 +1,4 @@
-﻿//Unity Standard Assets
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
