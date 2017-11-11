@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/**
+ * Imported from Unity Standard Assets
+ * Team MacroHard
+ * Binchen Hu
+ * Jiazheng Sun
+ * Jingyi Li
+ * Yunbo Zhang
+ * Ziming He
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class ApplicationManager : MonoBehaviour {
