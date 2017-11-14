@@ -15,18 +15,30 @@ using UnityEditor;
 
 public class simplePlayerControl : MonoBehaviour {
 
+    private Animator anim;
 
 	public float speed  = 10f;
 
     public bool isPaused;
     public GameObject inGameMenu;
-	// Use this for initialization
 
-	GameObject playerObj;
+    private Vector2 currentRotation;
+    public float sensitivity = 0.001f;
+
+    public float maxYAngle = 80f;
+
+    // Use this for initialization
+
+    GameObject playerObj;
+    GameObject playerModel;
 
 	void Start () {
 		playerObj = transform.GetChild (0).gameObject;
-	}
+        playerModel = transform.GetChild(1).gameObject;
+        anim = playerModel.GetComponent<Animator>();
+        if (anim == null)
+            Debug.Log("Animator could not be found");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -38,6 +50,17 @@ public class simplePlayerControl : MonoBehaviour {
 		float lv = Input.GetAxisRaw("Vertical");
 
         this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right * lh * speed) * Time.timeScale;
+
+        anim.SetFloat("Rate", Mathf.Abs(lh) + Mathf.Abs(lv));
+
+        if (lh == 0 && lv == 0)
+        {
+            anim.SetBool("Stop", true);
+        }
+        else
+        {
+            anim.SetBool("Stop", false);
+        }
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
 
@@ -53,9 +76,15 @@ public class simplePlayerControl : MonoBehaviour {
             isPaused = false;
             Time.timeScale = 1f;
         }
-//		this.transform.Translate (cam.transform.forward*lv*speed*Time.deltaTime);
+        currentRotation.x = Input.GetAxis("Mouse X") * sensitivity;
+        currentRotation.y = Input.GetAxis("Mouse Y") * sensitivity;
+        currentRotation.x = Mathf.Repeat(currentRotation.x, 360);
+        currentRotation.y = Mathf.Clamp(currentRotation.y, -maxYAngle, maxYAngle);
+        //		this.transform.Translate (cam.transform.forward*lv*speed*Time.deltaTime);
+        playerModel.transform.Rotate(currentRotation.x, currentRotation.y, Vector3.up.z);
+        Cursor.lockState = CursorLockMode.Locked;
 
-	}
+    }
     public void Pause()
     {
         inGameMenu.SetActive(true);
