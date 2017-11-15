@@ -16,16 +16,17 @@ public class BubbleEffect : MonoBehaviour {
 		particlAnimator = gameObject.AddComponent<ParticleAnimator>();
 		particlRenderer = gameObject.AddComponent<ParticleRenderer>();
 
-		particlEmitter.minSize = 0.1;
-		particlEmitter.maxSize = 0.2;
-		particlEmitter.minEnergy = 0.5;
+		particlEmitter.minSize = 0.1f;
+		particlEmitter.maxSize = 0.2f;
+		particlEmitter.minEnergy = 0.5f;
 		particlEmitter.maxEnergy = 2;
 		particlEmitter.minEmission = 10;
 		particlEmitter.maxEmission = 20;
 
 		particlAnimator.doesAnimateColor = false;
-		particlAnimator.sizeGrow = 0.5;
-		particlAnimator.force.y = 2;
+		particlAnimator.sizeGrow = 0.5f;
+
+//		particlAnimator.force.y = 2;
 
 		particlRenderer.materials = materials;
 	}
