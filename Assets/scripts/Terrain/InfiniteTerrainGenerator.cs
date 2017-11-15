@@ -21,6 +21,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour {
 
 	public GameObject plane;
 	public GameObject player;
+	public GameObject bush;
 
 	int planeSize = 10;
 	int halfTilesX = 5;
