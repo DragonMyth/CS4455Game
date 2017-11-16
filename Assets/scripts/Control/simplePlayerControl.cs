@@ -16,8 +16,8 @@ using UnityEngine;
 public class simplePlayerControl : MonoBehaviour {
 
 
-	public float speed  = 10f;
-
+	public float speed  = 0.1f;
+    public bool canSpeed; // if player can speed up
     public bool isPaused;
     public GameObject inGameMenu;
 	// Use this for initialization
@@ -30,16 +30,28 @@ public class simplePlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        canSpeed = !GetComponent<PlayerStamina>().getTired(); // see if player can speed up, which costs stamina
 
-
-		Camera cam = GetComponentInChildren<Camera>();
+        Camera cam = GetComponentInChildren<Camera>();
 
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
 
+        if (Input.GetButton("Fire1") && canSpeed) // press fire1 to speed up
+        {
+            speed = 0.4f;
+            GetComponent<PlayerStamina>().SpeedUp();
+        } else
+        {
+            GetComponent<PlayerStamina>().StaminaRegen();
+            speed = 0.1f;
+        }
+        print(speed);
         this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right * lh * speed) * Time.timeScale;
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
+
+        
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
