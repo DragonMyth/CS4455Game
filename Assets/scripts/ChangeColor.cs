@@ -1,3 +1,12 @@
+/**
+ * Team MacroHard
+ * Binchen Hu
+ * Jiazheng Sun
+ * Jingyi Li
+ * Yunbo Zhang
+ * Ziming He
+ */
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
