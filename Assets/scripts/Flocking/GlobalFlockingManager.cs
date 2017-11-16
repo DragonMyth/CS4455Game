@@ -10,7 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using JetBrains.Annotations;
 using System.Text.RegularExpressions;
 
@@ -103,7 +103,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 		Vector3 playerPos = player.transform.position;
 
 		Vector3 groupSpawnCenter = playerPos + new Vector3 (Random.Range (-this.tankSize, this.tankSize),
-			Random.Range (-10, 10),
+			Random.Range (1, 10),
 			Random.Range (-this.tankSize, this.tankSize));
 
 		int fishKindId = Random.Range (0, this.allFishKinds.Length);

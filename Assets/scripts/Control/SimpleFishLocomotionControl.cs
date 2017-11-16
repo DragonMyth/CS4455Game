@@ -42,7 +42,7 @@ public class SimpleFishLocomotionControl : MonoBehaviour {
 		Vector3 WorldMidpoint = curr.position + curr.forward * extend.z;
 
 
-		float rotAngle = getTargetRot (Time.time);
+		float rotAngle = getTargetRot (Time.fixedTime);
 
 		curr.RotateAround (WorldMidpoint,curr.up,rotAngle);
 

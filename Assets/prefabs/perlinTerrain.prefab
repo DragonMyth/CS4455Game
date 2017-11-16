@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d8298059d0e4cbd913d568018a8a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstableHeight: 3
 --- !u!198 &198732356431075740
 ParticleSystem:
   m_ObjectHideFlags: 1

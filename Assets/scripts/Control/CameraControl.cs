@@ -34,6 +34,7 @@ public class CameraControl : MonoBehaviour {
         {
             this.transform.RotateAround(player.transform.position, -this.transform.right, currentRotation.y);
             this.transform.RotateAround(player.transform.position, Vector3.up, currentRotation.x);
+
 			Cursor.lockState = CursorLockMode.Locked;
         }
 
