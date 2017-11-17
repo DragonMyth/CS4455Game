@@ -52,9 +52,9 @@ public class simplePlayerControl : MonoBehaviour {
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
         this.transform.position += (cam.transform.forward * lv
- 44             + cam.transform.right * lh
- 45             + up*Vector3.up
- 46             +down*Vector3.down) *speed* Time.timeScale;
+              + cam.transform.right * lh
+              + up*Vector3.up
+              +down*Vector3.down) *speed* Time.timeScale;
         
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
