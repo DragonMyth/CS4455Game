@@ -69,7 +69,6 @@ public class simplePlayerControl : MonoBehaviour {
             isPaused = false;
             Time.timeScale = 1f;
         }
-//		this.transform.Translate (cam.transform.forward*lv*speed*Time.deltaTime);
 
 	}
     public void Pause()
@@ -84,11 +83,6 @@ public class simplePlayerControl : MonoBehaviour {
         inGameMenu.SetActive(false);
         isPaused = false;
         Time.timeScale = 1f;
-    }
-
-    public void Death()
-    {
-
     }
 
 }
