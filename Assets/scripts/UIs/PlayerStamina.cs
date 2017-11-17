@@ -9,7 +9,6 @@ public class PlayerStamina : MonoBehaviour
     public Slider staminaSlider;                                 // Reference to the UI's Stamina bar.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
-    public Image speedImage;
     public float speedCost = 1f;
     public float speedRecover = 0.5f;
     //public AudioClip speedClip;
@@ -37,13 +36,13 @@ public class PlayerStamina : MonoBehaviour
         if (isSpeeding)
         {
             // ... set the colour of the damageImage to the flash colour.
-            speedImage.color = flashColour;
+            
         }
         // Otherwise...
         else
         {
             // ... transition the colour back to clear.
-            speedImage.color = Color.Lerp(speedImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            
             
         }
         // Reset the damaged flag.
@@ -90,5 +89,14 @@ public class PlayerStamina : MonoBehaviour
             currentStamina += speedRecover;
             staminaSlider.value = currentStamina;
         }
+    }
+    public void StaminaRecharge(float amount) // for stamina recharge packs
+    {
+        if (currentStamina < 100)
+        {
+            currentStamina += amount;
+        }
+        staminaSlider.value = currentStamina;
+
     }
 }

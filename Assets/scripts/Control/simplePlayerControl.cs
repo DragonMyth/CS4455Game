@@ -82,4 +82,9 @@ public class simplePlayerControl : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
+    public void Death()
+    {
+
+    }
+
 }
