@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using NUnit.Compatibility;
+//using NUnit.Compatibility;
 
 public class PlayerOxygen : MonoBehaviour {
 

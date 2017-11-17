@@ -21,6 +21,7 @@ public class simplePlayerControl : MonoBehaviour {
     public bool canSpeed; // if player can speed up
     public bool isPaused;
     public GameObject inGameMenu;
+	public GameObject cam;
 
     private Vector2 currentRotation;
     public float sensitivity = 0.001f;
@@ -29,6 +30,9 @@ public class simplePlayerControl : MonoBehaviour {
 
 	private float turnAngle = 10f;
 	private float turn = 0f;
+
+	float originalOxyCost;
+
 
     // Use this for initialization
 
@@ -39,6 +43,7 @@ public class simplePlayerControl : MonoBehaviour {
 		playerObj = transform.GetChild (0).gameObject;
         playerModel = transform.GetChild(1).gameObject;
         anim = playerModel.GetComponent<Animator>();
+		originalOxyCost = GetComponent<PlayerOxygen> ().OxygenCost;
         if (anim == null)
             Debug.Log("Animator could not be found");
     }
@@ -47,7 +52,6 @@ public class simplePlayerControl : MonoBehaviour {
 	void Update () {
         canSpeed = !GetComponent<PlayerStamina>().getTired(); // see if player can speed up, which costs stamina
 
-        Camera cam = GetComponentInChildren<Camera>();
 
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
@@ -76,15 +80,18 @@ public class simplePlayerControl : MonoBehaviour {
 		int up = Input.GetButton ("Jump") == true ? 1 : 0 ;
 		int down = Input.GetButton ("Descend") == true ? 1 : 0 ;
 
+
+
+
         if (Input.GetButton("Fire1") && canSpeed) // press fire1 to speed up
         {
             speed = 0.4f;
             GetComponent<PlayerStamina>().SpeedUp();
-			GetComponent <PlayerOxygen>().OxygenCost = 1;
+			GetComponent <PlayerOxygen>().OxygenCost = originalOxyCost*2;
         } else
         {
             GetComponent<PlayerStamina>().StaminaRegen();
-			GetComponent <PlayerOxygen>().OxygenCost = 0.3f;
+			GetComponent <PlayerOxygen>().OxygenCost = originalOxyCost;
             speed = 0.1f;
         }
 

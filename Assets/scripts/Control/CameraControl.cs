@@ -18,6 +18,8 @@ public class CameraControl : MonoBehaviour {
 	private Vector2 currentRotation;
 	public GameObject player;
 
+	public Transform camPos;
+
 
 
 	void Update()
@@ -37,6 +39,9 @@ public class CameraControl : MonoBehaviour {
 
 			Cursor.lockState = CursorLockMode.Locked;
         }
+
+		this.transform.position = Vector3.Slerp (transform.position, camPos.position, 1);
+		this.transform.forward = Vector3.Slerp (transform.forward, player.transform.forward, 1);
 
 
 			

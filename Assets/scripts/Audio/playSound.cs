@@ -16,7 +16,7 @@ public class playSound : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Mouse0))
+		if (Input.GetButton ("Fire1"))
         {
             mySound.enabled = true;
             mySound.loop = true;
