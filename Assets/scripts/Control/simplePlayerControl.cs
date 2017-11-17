@@ -61,11 +61,11 @@ public class simplePlayerControl : MonoBehaviour {
         //		turnAngle += Time.deltaTime * 10f;
         if( (Mathf.Abs(lh) + Mathf.Abs(lv)) > 0 && turn < 2.0f)
         {
-            turn += 0.1f * (Mathf.Abs(lh) + Mathf.Abs(lv));
+            turn += 0.1f * (Mathf.Abs(lh) + Mathf.Abs(lv)) * Time.timeScale;
         }
         else if (turn > 0)
         {
-            turn -= 0.12f;
+            turn -= 0.12f * Time.timeScale;
         }
         anim.SetFloat("Rate", turn);
 		//anim.SetFloat ("Turn", turn);
