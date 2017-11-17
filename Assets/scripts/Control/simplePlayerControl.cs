@@ -15,18 +15,33 @@ using UnityEngine;
 
 public class simplePlayerControl : MonoBehaviour {
 
+    private Animator anim;
 
 	public float speed  = 0.1f;
     public bool canSpeed; // if player can speed up
     public bool isPaused;
     public GameObject inGameMenu;
-	// Use this for initialization
 
-	GameObject playerObj;
+    private Vector2 currentRotation;
+    public float sensitivity = 0.001f;
+
+    public float maxYAngle = 80f;
+
+	private float turnAngle = 10f;
+	private float turn = 0f;
+
+    // Use this for initialization
+
+    GameObject playerObj;
+    GameObject playerModel;
 
 	void Start () {
 		playerObj = transform.GetChild (0).gameObject;
-	}
+        playerModel = transform.GetChild(1).gameObject;
+        anim = playerModel.GetComponent<Animator>();
+        if (anim == null)
+            Debug.Log("Animator could not be found");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,6 +52,27 @@ public class simplePlayerControl : MonoBehaviour {
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
 
+//		Vector2 vec = Vector2.ClampMagnitude(new Vector2(lh, lv), 1.0f);
+//
+//		lh = vec.x;
+//		lv = vec.y;
+
+//		turn = Mathf.Lerp (turn, lh, Time.deltaTime * 5f);
+//		turnAngle += Time.deltaTime * 10f;
+
+        anim.SetFloat("Rate", Mathf.Abs(lh) + Mathf.Abs(lv));
+		anim.SetFloat ("Turn", turn);
+		Debug.Log (turn);
+
+
+        if (lh == 0 && lv == 0)
+        {
+            anim.SetBool("Stop", true);
+        }
+        else
+        {
+            anim.SetBool("Stop", false);
+		}
 		int up = Input.GetButton ("Jump") == true ? 1 : 0 ;
 		int down = Input.GetButton ("Descend") == true ? 1 : 0 ;
 
@@ -54,10 +90,11 @@ public class simplePlayerControl : MonoBehaviour {
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
         this.transform.position += (cam.transform.forward * lv
-              + cam.transform.right * lh
+//              + cam.transform.right * lh
               + up*Vector3.up
               +down*Vector3.down) *speed* Time.timeScale;
         
+		this.transform.RotateAround (transform.position,Vector3.up,  4 * lh);
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
@@ -72,7 +109,7 @@ public class simplePlayerControl : MonoBehaviour {
             Time.timeScale = 1f;
         }
 
-	}
+    }
     public void Pause()
     {
         inGameMenu.SetActive(true);
@@ -88,3 +125,4 @@ public class simplePlayerControl : MonoBehaviour {
     }
 
 }
+

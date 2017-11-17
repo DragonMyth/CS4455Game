@@ -27,7 +27,8 @@ public class clearPhysicsOnPlayer : MonoBehaviour {
 		rbody.AddTorque (Vector3.zero,ForceMode.VelocityChange);
 		rbody.velocity = Vector3.zero;
 		rbody.angularVelocity = Vector3.zero;
-		transform.rotation = Quaternion.identity;
+
+//		transform.rotation = Quaternion.identity;
 
 	}
 }
