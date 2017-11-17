@@ -37,7 +37,13 @@ public class simplePlayerControl : MonoBehaviour {
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
 
-        this.transform.position += (cam.transform.forward * lv * speed + cam.transform.right * lh * speed) * Time.timeScale;
+		int up = Input.GetButton ("Jump") == true ? 1 : 0 ;
+		int down = Input.GetButton ("Descend") == true ? 1 : 0 ;
+
+		this.transform.position += (cam.transform.forward * lv 
+			+ cam.transform.right * lh  
+			+ up*Vector3.up
+			+down*Vector3.down) *speed* Time.timeScale;
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
 
