@@ -16,8 +16,8 @@ using UnityEngine;
 public class simplePlayerControl : MonoBehaviour {
 
 
-	public float speed  = 10f;
-
+	public float speed  = 0.1f;
+    public bool canSpeed; // if player can speed up
     public bool isPaused;
     public GameObject inGameMenu;
 	// Use this for initialization
@@ -30,9 +30,9 @@ public class simplePlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        canSpeed = !GetComponent<PlayerStamina>().getTired(); // see if player can speed up, which costs stamina
 
-
-		Camera cam = GetComponentInChildren<Camera>();
+        Camera cam = GetComponentInChildren<Camera>();
 
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
@@ -40,12 +40,22 @@ public class simplePlayerControl : MonoBehaviour {
 		int up = Input.GetButton ("Jump") == true ? 1 : 0 ;
 		int down = Input.GetButton ("Descend") == true ? 1 : 0 ;
 
-		this.transform.position += (cam.transform.forward * lv 
-			+ cam.transform.right * lh  
-			+ up*Vector3.up
-			+down*Vector3.down) *speed* Time.timeScale;
+        if (Input.GetButton("Fire1") && canSpeed) // press fire1 to speed up
+        {
+            speed = 0.4f;
+            GetComponent<PlayerStamina>().SpeedUp();
+        } else
+        {
+            GetComponent<PlayerStamina>().StaminaRegen();
+            speed = 0.1f;
+        }
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
+        this.transform.position += (cam.transform.forward * lv
+ 44             + cam.transform.right * lh
+ 45             + up*Vector3.up
+ 46             +down*Vector3.down) *speed* Time.timeScale;
+        
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
@@ -74,6 +84,11 @@ public class simplePlayerControl : MonoBehaviour {
         inGameMenu.SetActive(false);
         isPaused = false;
         Time.timeScale = 1f;
+    }
+
+    public void Death()
+    {
+
     }
 
 }
