@@ -39,7 +39,7 @@ public class PickUpHit : MonoBehaviour
 
 //			Debug.Log (ScoreManager.score);
 
-
+			EventManager.TriggerEvent<OxygenCollisionEvent, Vector3, string>(collision.contacts[0].point, "Player");
         }
     }
 
