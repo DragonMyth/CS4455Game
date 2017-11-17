@@ -18,7 +18,7 @@ public class PlayerStamina : MonoBehaviour
     bool isSpeeding;                                            // For UI update
     public bool isTired;                                        // To see if character can speed up
 
-
+	simplePlayerControl control;
     void Awake()
     {
         // Setting up the references.
@@ -26,34 +26,32 @@ public class PlayerStamina : MonoBehaviour
         //playerAudio = GetComponent<AudioSource>();
         // Set the initial health of the player.
         currentStamina = startingStamina;
+		control = GetComponent <simplePlayerControl> ();
     }
 
 
     void Update()
     {
-        staminaSlider.value = currentStamina;
-        // If the player has just been damaged...
-        if (isSpeeding)
-        {
-            // ... set the colour of the damageImage to the flash colour.
+			staminaSlider.value = currentStamina;
+			// If the player has just been damaged...
+			if (isSpeeding) {
+				// ... set the colour of the damageImage to the flash colour.
             
-        }
+			}
         // Otherwise...
-        else
-        {
-            // ... transition the colour back to clear.
+        else {
+				// ... transition the colour back to clear.
             
             
-        }
-        // Reset the damaged flag.
-        isSpeeding = false;
-        if (isTired == true)
-        {
-            if (currentStamina > 50)
-            {
-                isTired = false;
-            }
-        }
+			}
+			// Reset the damaged flag.
+			isSpeeding = false;
+			if (isTired == true) {
+				if (currentStamina > 50) {
+					isTired = false;
+				}
+			}
+
     }
 
     // Need to call SpeedUp in character control
@@ -84,11 +82,12 @@ public class PlayerStamina : MonoBehaviour
     }
     public void StaminaRegen()
     {
-        if (currentStamina < 100)
-        {
-            currentStamina += speedRecover;
-            staminaSlider.value = currentStamina;
-        }
+		if (!control.isPaused) {
+			if (currentStamina < 100) {
+				currentStamina += speedRecover;
+				staminaSlider.value = currentStamina;
+			}
+		}
     }
     public void StaminaRecharge(float amount) // for stamina recharge packs
     {

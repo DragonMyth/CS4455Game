@@ -44,9 +44,12 @@ public class simplePlayerControl : MonoBehaviour {
         {
             speed = 0.4f;
             GetComponent<PlayerStamina>().SpeedUp();
+			GetComponent <PlayerOxygen>().OxygenCost = 1;
         } else
         {
             GetComponent<PlayerStamina>().StaminaRegen();
+			GetComponent <PlayerOxygen>().OxygenCost = 0.3f;
+
             speed = 0.1f;
         }
 
@@ -69,7 +72,6 @@ public class simplePlayerControl : MonoBehaviour {
             isPaused = false;
             Time.timeScale = 1f;
         }
-//		this.transform.Translate (cam.transform.forward*lv*speed*Time.deltaTime);
 
 	}
     public void Pause()
@@ -84,11 +86,6 @@ public class simplePlayerControl : MonoBehaviour {
         inGameMenu.SetActive(false);
         isPaused = false;
         Time.timeScale = 1f;
-    }
-
-    public void Death()
-    {
-
     }
 
 }
