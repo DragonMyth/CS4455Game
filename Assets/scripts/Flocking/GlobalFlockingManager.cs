@@ -17,7 +17,7 @@ using System.Text.RegularExpressions;
 public class GlobalFlockingManager : MonoBehaviour {
 
 
-	public static ArrayList allFishGroups = new ArrayList();
+	public static ArrayList allFishGroups;
 
 	public GameObject[] allFishKinds;
 
@@ -33,10 +33,11 @@ public class GlobalFlockingManager : MonoBehaviour {
 
 	int spawnRad = 3;
 
-	int minInteractionDist = 5;
+	int minInteractionDist = 4;
 
 	void Start () {
 
+		allFishGroups = new ArrayList ();
 		for (int groupNum = 0; groupNum < maxGroup; groupNum++) {
 
 			instantiatOneGroup ();
@@ -74,6 +75,16 @@ public class GlobalFlockingManager : MonoBehaviour {
 			} else if (dist < minInteractionDist) {
 			
 				flockGroup.setGoalPos (player.transform.position);
+
+//				PlayerOxygen oxygen = player.gameObject.GetComponent<PlayerOxygen> ();
+
+//				oxygen.currentOxygen 
+				if(!flockGroup.getScored ()){
+					ScoreManager.score += 100;
+				}
+
+				flockGroup.setScored (true);
+
 			}
 		
 		}
@@ -103,7 +114,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 		Vector3 playerPos = player.transform.position;
 
 		Vector3 groupSpawnCenter = playerPos + new Vector3 (Random.Range (-this.tankSize, this.tankSize),
-			Random.Range (1, 10),
+			Random.Range (1, 5),
 			Random.Range (-this.tankSize, this.tankSize));
 
 		int fishKindId = Random.Range (0, this.allFishKinds.Length);

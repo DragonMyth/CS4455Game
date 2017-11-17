@@ -17,6 +17,7 @@ public class FlockingGroup {
 	Vector3 goalPos;
 	Vector3[] groupFlockSpawnPoints;
 	GameObject[] allFlocks;
+	bool scored;
 
 	public FlockingGroup(int fishKindId, int numInstance, Vector3 spawnCenter, int spawnRadius){
 		this.fishKindId = fishKindId;
@@ -24,6 +25,7 @@ public class FlockingGroup {
 		this.goalPos = spawnCenter;
 		this.groupFlockSpawnPoints = new Vector3[numInstance];
 		this.allFlocks = new GameObject[numInstance];
+		this.scored = false;
 		instantiateFlocks (spawnCenter,spawnRadius);
 
 	}
@@ -32,7 +34,7 @@ public class FlockingGroup {
 	void instantiateFlocks(Vector3 spawnCenter, int spawnRadius){
 		for (int i = 0; i < this.numInstance; i++) {
 			Vector3 spawnPos = spawnCenter + new Vector3 (Random.Range (-spawnRadius, spawnRadius),
-				Random.Range (5, spawnRadius),
+				Random.Range (1, spawnRadius),
 				Random.Range (-spawnRadius, spawnRadius));
 			this.groupFlockSpawnPoints [i] = spawnPos;
 		} 
@@ -79,4 +81,14 @@ public class FlockingGroup {
 		return flockCenter/this.allFlocks.Length;
 
 	}
+
+
+	public bool getScored(){
+		return scored;
+	}
+
+	public void setScored(bool scored){
+		this.scored = scored;
+	}
+
 }

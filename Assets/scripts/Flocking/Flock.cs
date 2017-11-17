@@ -17,14 +17,14 @@ public class Flock : MonoBehaviour {
 
 
 	public float speed = 0.1f;
-	public float neighbourDistance = 1.0f;
-	public int speciesKind = 0;
+//	public float neighbourDistance = 1.0f;
+//	public int speciesKind = 0;
 	public float minRepulseDist = 1.0f;
 
 
 	FlockingGroup flockGroup;
 
-	float rotationSpeed = 4.0f;
+	float rotationSpeed = 2f;
 	Vector3 averageHeading;
 	Vector3 averagePosition;
 	float speedLimit = 6f;

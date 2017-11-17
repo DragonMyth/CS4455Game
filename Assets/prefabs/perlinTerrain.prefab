@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 54591056356265204}
   - component: {fileID: 198732356431075740}
   - component: {fileID: 199124159001531158}
+  - component: {fileID: 114400025225041652}
   m_Layer: 0
   m_Name: perlinTerrain
   m_TagString: Untagged
@@ -127,7 +128,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d8298059d0e4cbd913d568018a8a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstableHeight: 3
+  deltaScale: 10
+  heightScale: 10
+  obstableHeight: 2
+--- !u!114 &114400025225041652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039814344677404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc07a809759947cead3b703bc1c1390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionPrefabs:
+  - {fileID: 1151490210733298, guid: c6fec74329a0e4350bc3ad5e25f142ab, type: 2}
+  - {fileID: 1243117625528860, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+  interactionNums: 0300000001000000
+  interactionProb: 6400000005000000
 --- !u!198 &198732356431075740
 ParticleSystem:
   m_ObjectHideFlags: 1

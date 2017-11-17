@@ -14,8 +14,8 @@ using UnityEngine;
 public class TerrainGenerator : MonoBehaviour {
 
 	// Use this for initialization
-	float deltaScale = 10.0f;
-	int heightScale = 10;
+	public float deltaScale = 10.0f;
+	public int heightScale = 10;
 
 	public int obstableHeight = 2;
 	void Start () {
