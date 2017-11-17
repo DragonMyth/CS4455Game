@@ -715,7 +715,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1896657767
+  randomSeed: -1134869689
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4024,7 +4024,7 @@ GameObject:
   - component: {fileID: 750145642}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4176,7 +4176,7 @@ MonoBehaviour:
   startingOxygen: 100
   currentOxygen: 0
   OxygenSlider: {fileID: 950618776}
-  OxygenCost: 0.25
+  OxygenCost: 0.1
   UIObj: {fileID: 1595746849}
 --- !u!1 &756473097
 GameObject:
@@ -4928,63 +4928,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 1039814344677404, guid: a1b0a85192f7b444294f8804831a5273, type: 2}
   player: {fileID: 750145633}
---- !u!1001 &1194628813
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 198753389353015062, guid: 8f50ca1c4db2147a282c3e861c7918e7,
-        type: 2}
-      propertyPath: randomSeed
-      value: -1711653311
-      objectReference: {fileID: 0}
-    - target: {fileID: 198753389353015062, guid: 8f50ca1c4db2147a282c3e861c7918e7,
-        type: 2}
-      propertyPath: ShapeModule.type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 198753389353015062, guid: 8f50ca1c4db2147a282c3e861c7918e7,
-        type: 2}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1220759938
 GameObject:
   m_ObjectHideFlags: 0

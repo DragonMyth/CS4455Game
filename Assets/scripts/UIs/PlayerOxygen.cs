@@ -43,7 +43,7 @@ public class PlayerOxygen : MonoBehaviour {
         // Reset the damaged flag.
     }
 
-    void OxygenRecharge(float amount)
+    public void OxygenRecharge(float amount)
     {
         if (currentOxygen < 100)
         {
