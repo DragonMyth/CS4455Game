@@ -32,6 +32,7 @@ public class simplePlayerControl : MonoBehaviour {
 	private float turn = 0f;
 
 	float originalOxyCost;
+    float originalSpeed;
 
 
     // Use this for initialization
@@ -44,6 +45,7 @@ public class simplePlayerControl : MonoBehaviour {
         playerModel = transform.GetChild(1).gameObject;
         anim = playerModel.GetComponent<Animator>();
 		originalOxyCost = GetComponent<PlayerOxygen> ().OxygenCost;
+        originalSpeed = speed;
         if (anim == null)
             Debug.Log("Animator could not be found");
     }
@@ -92,21 +94,21 @@ public class simplePlayerControl : MonoBehaviour {
 
         if (Input.GetButton("Fire1") && canSpeed) // press fire1 to speed up
         {
-            speed = 0.4f;
+            speed = originalSpeed*3;
             GetComponent<PlayerStamina>().SpeedUp();
 			GetComponent <PlayerOxygen>().OxygenCost = originalOxyCost*2;
         } else
         {
             GetComponent<PlayerStamina>().StaminaRegen();
 			GetComponent <PlayerOxygen>().OxygenCost = originalOxyCost;
-            speed = 0.1f;
+            speed = originalSpeed;
         }
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
         this.transform.position += (cam.transform.forward * lv
 //              + cam.transform.right * lh
-              + up*Vector3.up
-              +down*Vector3.down) *speed* Time.timeScale;
+              + up*Vector3.up*2
+              +down*Vector3.down*2) *speed* Time.timeScale;
         
 		this.transform.RotateAround (transform.position,Vector3.up,  4 * lh);
 

@@ -70,7 +70,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 				toBeDeletedIdx [groupIdx] = 1;
 			} else if (dist < tankSize && dist > minInteractionDist) {
 
-				flockGroup.setGoalPos (groupCenter);
+				//flockGroup.setGoalPos (groupCenter);
 			
 			} else if (dist < minInteractionDist) {
 			
