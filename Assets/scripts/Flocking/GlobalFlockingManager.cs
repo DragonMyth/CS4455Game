@@ -103,7 +103,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 		Vector3 playerPos = player.transform.position;
 
 		Vector3 groupSpawnCenter = playerPos + new Vector3 (Random.Range (-this.tankSize, this.tankSize),
-			Random.Range (1, 10),
+			Random.Range (1, 5),
 			Random.Range (-this.tankSize, this.tankSize));
 
 		int fishKindId = Random.Range (0, this.allFishKinds.Length);

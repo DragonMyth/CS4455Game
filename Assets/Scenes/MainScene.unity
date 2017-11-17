@@ -4928,6 +4928,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 1039814344677404, guid: a1b0a85192f7b444294f8804831a5273, type: 2}
   player: {fileID: 750145633}
+--- !u!1001 &1194628813
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887598627920008, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 198753389353015062, guid: 8f50ca1c4db2147a282c3e861c7918e7,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1711653311
+      objectReference: {fileID: 0}
+    - target: {fileID: 198753389353015062, guid: 8f50ca1c4db2147a282c3e861c7918e7,
+        type: 2}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198753389353015062, guid: 8f50ca1c4db2147a282c3e861c7918e7,
+        type: 2}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8f50ca1c4db2147a282c3e861c7918e7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1220759938
 GameObject:
   m_ObjectHideFlags: 0
@@ -5841,8 +5898,8 @@ MonoBehaviour:
   - {fileID: 1587845617853448, guid: 7058f1a66e60a41638300904d04403ed, type: 2}
   - {fileID: 1780141956089202, guid: 4d3de800604a341658c3ac08cdd8f267, type: 2}
   player: {fileID: 750145633}
-  tankSize: 30
-  maxGroup: 6
+  tankSize: 20
+  maxGroup: 5
   numInstance: 15
 --- !u!4 &1839740499
 Transform:
