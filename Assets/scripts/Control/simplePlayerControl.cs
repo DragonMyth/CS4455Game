@@ -49,7 +49,6 @@ public class simplePlayerControl : MonoBehaviour {
         {
             GetComponent<PlayerStamina>().StaminaRegen();
 			GetComponent <PlayerOxygen>().OxygenCost = 0.3f;
-
             speed = 0.1f;
         }
 
