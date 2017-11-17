@@ -24,7 +24,7 @@ public class Flock : MonoBehaviour {
 
 	FlockingGroup flockGroup;
 
-	float rotationSpeed = 4.0f;
+	float rotationSpeed = 2f;
 	Vector3 averageHeading;
 	Vector3 averagePosition;
 	float speedLimit = 6f;

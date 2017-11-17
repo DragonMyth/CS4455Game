@@ -33,7 +33,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 
 	int spawnRad = 3;
 
-	int minInteractionDist = 5;
+	int minInteractionDist = 8;
 
 	void Start () {
 
