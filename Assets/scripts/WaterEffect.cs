@@ -20,7 +20,7 @@ public class WaterEffect : MonoBehaviour {
 		defaultSkybox = RenderSettings.skybox;
 		RenderSettings.fog = true;
 		RenderSettings.fogColor = new Color(0, 0.4f, 0.7f, 0.6f);
-		RenderSettings.fogDensity = 0.2f;
+		RenderSettings.fogDensity = 0.1f;
 		RenderSettings.skybox = noSkybox;
 	}
 
