@@ -4739,7 +4739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b842982a3036e46d3b9fe8d9106b8169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oxygenAudio: {fileID: 8300000, guid: dd919a69f9e414ba989ee26c86e14ffb, type: 3}
+  oxygenAudio: {fileID: 8300000, guid: 089723866e98945a69e5bc7a97718540, type: 3}
+  fishAudio: {fileID: 8300000, guid: a23566faae5a84b64a90ed12a9f339f9, type: 3}
 --- !u!4 &1156226630
 Transform:
   m_ObjectHideFlags: 0

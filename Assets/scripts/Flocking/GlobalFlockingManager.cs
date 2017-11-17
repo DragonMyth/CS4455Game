@@ -80,6 +80,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 
 //				oxygen.currentOxygen 
 				if(!flockGroup.getScored ()){
+					EventManager.TriggerEvent<FishCollisionEvent, Vector3, string>(player.transform.position, "Player");
 					ScoreManager.score += 100;
 				}
 
