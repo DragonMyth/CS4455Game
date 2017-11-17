@@ -76,7 +76,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4360259626715628}
-  - component: {fileID: 95284841489173632}
   - component: {fileID: 114934144380638758}
   - component: {fileID: 114583343031350602}
   - component: {fileID: 54924650336281996}
@@ -563,23 +562,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95284841489173632
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1587845617853448}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9983eab90e0f540358450d46a4a19b0a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114583343031350602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801cf70af31b140c699e42a7644f2d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
   neighbourDistance: 3
   speciesKind: 1
   minRepulseDist: 2

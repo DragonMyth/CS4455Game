@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NUnit.Compatibility;
 
 public class PlayerOxygen : MonoBehaviour {
 
@@ -10,6 +11,8 @@ public class PlayerOxygen : MonoBehaviour {
     public Slider OxygenSlider;                                 // Reference to the UI's Stamina bar.
     public float OxygenCost = 0.25f;
     public GameObject UIObj;
+
+	simplePlayerControl control;
     //public AudioClip speedClip;
 
     Animator anim;                                              // Reference to the Animator component.
@@ -25,15 +28,16 @@ public class PlayerOxygen : MonoBehaviour {
         currentOxygen = startingOxygen;
 
         gameoverManage = UIObj.GetComponent<GameOverManage>();
+		control = GetComponent<simplePlayerControl> ();
     }
 
     void Update()
     {
-        if (currentOxygen >= 0)
+		if (!control.isPaused)
         {
             currentOxygen -= OxygenCost;
         }
-        else
+		if (currentOxygen<=0)
         {
             gameoverManage.Die();
 
@@ -48,6 +52,7 @@ public class PlayerOxygen : MonoBehaviour {
         if (currentOxygen < 100)
         {
             currentOxygen += amount;
+			currentOxygen = Mathf.Min (100, currentOxygen);
         }
         OxygenSlider.value = currentOxygen;
     }

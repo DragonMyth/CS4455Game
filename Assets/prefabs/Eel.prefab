@@ -688,7 +688,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801cf70af31b140c699e42a7644f2d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  neighbourDistance: 3
-  speciesKind: 1
-  minRepulseDist: 5
+  speed: 4
+  minRepulseDist: 3
