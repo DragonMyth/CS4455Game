@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PickUpHit : MonoBehaviour
 {
@@ -15,8 +16,18 @@ public class PickUpHit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && hited == false)
         {
             hited = true;
+
             gameObject.GetComponent<Renderer>().material.SetColor("Color",Color.blue);
-            collision.gameObject.GetComponent<PlayerOxygen>().OxygenRecharge(10f);
+            
+			PlayerOxygen oxygen = collision.gameObject.GetComponent<PlayerOxygen> ();
+
+			oxygen.OxygenRecharge(10f);
+
+			ScoreManager.score += 1;
+
+			Debug.Log (ScoreManager.score);
+
+
         }
     }
 
