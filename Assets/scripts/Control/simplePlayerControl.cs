@@ -91,7 +91,7 @@ public class simplePlayerControl : MonoBehaviour {
 
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
         this.transform.position += (cam.transform.forward * lv
-              + cam.transform.right * lh
+//              + cam.transform.right * lh
               + up*Vector3.up
               +down*Vector3.down) *speed* Time.timeScale;
         
@@ -109,13 +109,6 @@ public class simplePlayerControl : MonoBehaviour {
             isPaused = false;
             Time.timeScale = 1f;
         }
-        currentRotation.x = Input.GetAxis("Mouse X") * sensitivity;
-        currentRotation.y = Input.GetAxis("Mouse Y") * sensitivity;
-        currentRotation.x = Mathf.Repeat(currentRotation.x, 360);
-        currentRotation.y = Mathf.Clamp(currentRotation.y, -maxYAngle, maxYAngle);
-        //		this.transform.Translate (cam.transform.forward*lv*speed*Time.deltaTime);
-        playerModel.transform.Rotate(currentRotation.x, currentRotation.y, Vector3.up.z);
-        Cursor.lockState = CursorLockMode.Locked;
 
     }
     public void Pause()
