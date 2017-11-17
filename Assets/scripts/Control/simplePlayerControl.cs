@@ -56,16 +56,23 @@ public class simplePlayerControl : MonoBehaviour {
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
 
-//		Vector2 vec = Vector2.ClampMagnitude(new Vector2(lh, lv), 1.0f);
-//
-//		lh = vec.x;
-//		lv = vec.y;
+        //		Vector2 vec = Vector2.ClampMagnitude(new Vector2(lh, lv), 1.0f);
+        //
+        //		lh = vec.x;
+        //		lv = vec.y;
 
-//		turn = Mathf.Lerp (turn, lh, Time.deltaTime * 5f);
-//		turnAngle += Time.deltaTime * 10f;
-
-        anim.SetFloat("Rate", Mathf.Abs(lh) + Mathf.Abs(lv));
-		anim.SetFloat ("Turn", turn);
+        //		turn = Mathf.Lerp (turn, lh, Time.deltaTime * 5f);
+        //		turnAngle += Time.deltaTime * 10f;
+        if( (Mathf.Abs(lh) + Mathf.Abs(lv)) > 0 && turn < 2.0f)
+        {
+            turn += 0.1f * (Mathf.Abs(lh) + Mathf.Abs(lv)) * Time.timeScale;
+        }
+        else if (turn > 0)
+        {
+            turn -= 0.12f * Time.timeScale;
+        }
+        anim.SetFloat("Rate", turn);
+		//anim.SetFloat ("Turn", turn);
 		Debug.Log (turn);
 
 
