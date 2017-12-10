@@ -4291,7 +4291,7 @@ MonoBehaviour:
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
   speedCost: 0
   speedRecover: 0.5
-  isTired: 0
+  isTired: 1
 --- !u!114 &750145642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4307,6 +4307,7 @@ MonoBehaviour:
   currentOxygen: 0
   OxygenSlider: {fileID: 950618776}
   OxygenCost: 0
+  OxygenLoss: 1
   UIObj: {fileID: 109478625}
 --- !u!82 &750145643
 AudioSource:
@@ -4394,9 +4395,9 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 750145633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c687442deafe940917c1ff8fae3535, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &750145645
@@ -5524,7 +5525,7 @@ Prefab:
     - target: {fileID: 224966410236371858, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224966410236371858, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
@@ -5534,7 +5535,7 @@ Prefab:
     - target: {fileID: 224856547183546068, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -69.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224856547183546068, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}

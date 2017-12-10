@@ -69,9 +69,9 @@ public class simplePlayerControl : MonoBehaviour {
         {
             turn -= 0.12f * Time.timeScale;
         }
-        anim.SetFloat("Rate", turn);
+        // anim.SetFloat("Rate", turn);
 		//anim.SetFloat ("Turn", turn);
-//		Debug.Log (turn);
+		// Debug.Log (turn);
 
 
         if (lh == 0 && lv == 0)
@@ -99,7 +99,8 @@ public class simplePlayerControl : MonoBehaviour {
 			GetComponent <PlayerOxygen>().OxygenCost = originalOxyCost;
             speed = originalSpeed;
         }
-
+        anim.SetFloat("Rate", turn * speed * 10);
+        // Debug.Log(speed);
         //this.transform.Translate(cam.transform.forward * lv * speed * Time.deltaTime);
         this.transform.position += (cam.transform.forward * lv
 //              + cam.transform.right * lh
@@ -134,6 +135,10 @@ public class simplePlayerControl : MonoBehaviour {
         inGameMenu.SetActive(false);
         isPaused = false;
         Time.timeScale = 1f;
+    }
+
+    void OnParticleCollision(GameObject other) {
+        Debug.Log("Hit on volcano!");
     }
 
 }

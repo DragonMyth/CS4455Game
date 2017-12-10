@@ -10,6 +10,7 @@ public class PlayerOxygen : MonoBehaviour {
     public float currentOxygen;                                   // The current Stamina the player has.
     public Slider OxygenSlider;                                 // Reference to the UI's Stamina bar.
     public float OxygenCost = 0.25f;
+    public float OxygenLoss = 1f;
     public GameObject UIObj;
 
 	simplePlayerControl control;
@@ -60,6 +61,20 @@ public class PlayerOxygen : MonoBehaviour {
     public float GetOxygen()
     {
         return currentOxygen;
+    }
+
+    void OnParticleCollision(GameObject other) {
+        Debug.Log("decrease health!");
+        if (!control.isPaused)
+        {
+            currentOxygen -= OxygenLoss;
+        }
+        if (currentOxygen<=0)
+        {
+            gameoverManage.Die();
+
+        }
+        OxygenSlider.value = currentOxygen;
     }
 
 }
