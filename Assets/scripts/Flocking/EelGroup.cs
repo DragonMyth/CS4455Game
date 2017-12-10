@@ -20,7 +20,7 @@ public class EelGroup : FlockingGroup {
 		if (dist < 2.0 && !this.getScored ()) {
 			Debug.Log ("THIS IS Eel GROUP!!!!!!!");
 			if (!this.getScored ()) {
-				EventManager.TriggerEvent<FishCollisionEvent, Vector3, string> (targetTrans.position, "Player");
+				EventManager.TriggerEvent<EelCollisionEvent, Vector3, string> (targetTrans.position, "Player");
 				ScoreManager.score += score;
 			}
 

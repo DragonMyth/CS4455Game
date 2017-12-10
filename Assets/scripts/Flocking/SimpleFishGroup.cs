@@ -20,7 +20,7 @@ public class SimpleFishGroup : FlockingGroup {
 		if (dist < 2.0) {
 
 			if (!this.getScored ()) {
-				EventManager.TriggerEvent<FishCollisionEvent, Vector3, string> (targetTrans.position, "Player");
+				EventManager.TriggerEvent<SimpleFishCollisionEvent, Vector3, string> (targetTrans.position, "Player");
 				ScoreManager.score += score;
 			}
 

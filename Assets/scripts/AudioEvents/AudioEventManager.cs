@@ -9,10 +9,16 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip oxygenAudio;
 	public AudioClip fishAudio;
 	public AudioClip swimAudio;
+    public AudioClip eelAudio;
+    public AudioClip simpleFishAudio;
+    public AudioClip loseScoreAudio;
 
 	private UnityAction<Vector3, string> oxygenCollisionEventListener;
 	private UnityAction<Vector3, string> fishCollisionEventListener;
 	private UnityAction<Vector3> playerThreadWaterEventListener;
+    private UnityAction<Vector3, string> simpleFishCollisionEventListener;
+    private UnityAction<Vector3, string> eelCollisionEventListener;
+    private UnityAction<Vector3, string> loseScoreEventListener;
 
 
     void Awake()
@@ -21,6 +27,9 @@ public class AudioEventManager : MonoBehaviour
 		oxygenCollisionEventListener = new UnityAction<Vector3, string> (oxygenCollisionEventHandler);
 		fishCollisionEventListener = new UnityAction<Vector3, string> (fishCollisionEventHandler);
 		playerThreadWaterEventListener = new UnityAction<Vector3> (playerThreadWaterEventHandler);
+        simpleFishCollisionEventListener = new UnityAction<Vector3, string> (simpleFishCollisionEventHandler);
+        eelCollisionEventListener = new UnityAction<Vector3, string>(eelCollisionEventHandler);
+        loseScoreEventListener = new UnityAction<Vector3, string>(loseScoreEventHandler);
 
     }
 
@@ -28,8 +37,6 @@ public class AudioEventManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-
         			
     }
 
@@ -40,6 +47,9 @@ public class AudioEventManager : MonoBehaviour
 		EventManager.StartListening<OxygenCollisionEvent, Vector3, string> (oxygenCollisionEventListener);
 		EventManager.StartListening<FishCollisionEvent, Vector3, string> (fishCollisionEventListener);
 		EventManager.StartListening<PlayerThreadWaterEvent, Vector3> (playerThreadWaterEventListener);
+        EventManager.StartListening<SimpleFishCollisionEvent, Vector3, string>(simpleFishCollisionEventListener);
+        EventManager.StartListening<EelCollisionEvent, Vector3, string>(eelCollisionEventListener);
+        EventManager.StartListening<LoseScoreEvent, Vector3, string>(loseScoreEventListener);
 
     }
 
@@ -49,8 +59,11 @@ public class AudioEventManager : MonoBehaviour
 		EventManager.StopListening<OxygenCollisionEvent, Vector3, string> (oxygenCollisionEventListener);
 		EventManager.StopListening<FishCollisionEvent, Vector3, string> (fishCollisionEventListener);
 		EventManager.StopListening<PlayerThreadWaterEvent, Vector3> (playerThreadWaterEventListener);
+        EventManager.StopListening<SimpleFishCollisionEvent, Vector3, string>(simpleFishCollisionEventListener);
+        EventManager.StopListening<EelCollisionEvent, Vector3, string>(eelCollisionEventListener);
+        EventManager.StopListening<LoseScoreEvent, Vector3, string>(loseScoreEventListener);
 
-	}
+    }
 
 
 
@@ -81,4 +94,18 @@ public class AudioEventManager : MonoBehaviour
 		AudioSource.PlayClipAtPoint (this.swimAudio, worldPos);
 	}
 
+    void simpleFishCollisionEventHandler(Vector3 worldPos, string surface)
+    {
+        AudioSource.PlayClipAtPoint(this.simpleFishAudio, worldPos);
+    }
+
+    void eelCollisionEventHandler(Vector3 worldPos, string surface)
+    {
+        AudioSource.PlayClipAtPoint(this.eelAudio, worldPos);
+    }
+
+    void loseScoreEventHandler(Vector3 worldPos, string surface)
+    {
+        AudioSource.PlayClipAtPoint(this.loseScoreAudio, worldPos);
+    }
 }

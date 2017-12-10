@@ -5018,6 +5018,9 @@ MonoBehaviour:
   oxygenAudio: {fileID: 8300000, guid: 089723866e98945a69e5bc7a97718540, type: 3}
   fishAudio: {fileID: 8300000, guid: a23566faae5a84b64a90ed12a9f339f9, type: 3}
   swimAudio: {fileID: 8300000, guid: 5102b9c86abe84483aa4e55cbc388a47, type: 3}
+  eelAudio: {fileID: 8300000, guid: 7dabae7764e673843822f73ae9f2db02, type: 3}
+  simpleFishAudio: {fileID: 8300000, guid: e067cc83b7efaf64a9b768e5ea870204, type: 3}
+  loseScoreAudio: {fileID: 8300000, guid: 6844397c036da1e47859df695dd1bc1e, type: 3}
 --- !u!4 &1156226630
 Transform:
   m_ObjectHideFlags: 0
@@ -6693,6 +6696,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
