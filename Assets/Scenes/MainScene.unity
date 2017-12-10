@@ -4188,28 +4188,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 609287771}
---- !u!1 &696966518 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1780141956089202, guid: 4d3de800604a341658c3ac08cdd8f267,
-    type: 2}
-  m_PrefabInternal: {fileID: 2093734116}
---- !u!95 &696966522
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 696966518}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 857463b42e8ac4d548e60631a1449344, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &750145633
 GameObject:
   m_ObjectHideFlags: 0
@@ -7049,7 +7027,7 @@ MonoBehaviour:
   - {fileID: 1780141956089202, guid: 4d3de800604a341658c3ac08cdd8f267, type: 2}
   player: {fileID: 750145633}
   goalPrefab: {fileID: 1508978716900594, guid: 457762c84872a4039996e42530036a64, type: 2}
-  tankSize: 200
+  tankSize: 50
   maxGroup: 20
   numInstance: 1e0000000f00000014000000
 --- !u!4 &1839740499
