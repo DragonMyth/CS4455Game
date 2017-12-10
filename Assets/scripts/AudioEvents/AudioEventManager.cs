@@ -8,9 +8,11 @@ public class AudioEventManager : MonoBehaviour
 
     public AudioClip oxygenAudio;
 	public AudioClip fishAudio;
+	public AudioClip swimAudio;
 
 	private UnityAction<Vector3, string> oxygenCollisionEventListener;
 	private UnityAction<Vector3, string> fishCollisionEventListener;
+	private UnityAction<Vector3> playerThreadWaterEventListener;
 
 
     void Awake()
@@ -18,6 +20,7 @@ public class AudioEventManager : MonoBehaviour
 
 		oxygenCollisionEventListener = new UnityAction<Vector3, string> (oxygenCollisionEventHandler);
 		fishCollisionEventListener = new UnityAction<Vector3, string> (fishCollisionEventHandler);
+		playerThreadWaterEventListener = new UnityAction<Vector3> (playerThreadWaterEventHandler);
 
     }
 
@@ -36,7 +39,7 @@ public class AudioEventManager : MonoBehaviour
 
 		EventManager.StartListening<OxygenCollisionEvent, Vector3, string> (oxygenCollisionEventListener);
 		EventManager.StartListening<FishCollisionEvent, Vector3, string> (fishCollisionEventListener);
-
+		EventManager.StartListening<PlayerThreadWaterEvent, Vector3> (playerThreadWaterEventListener);
 
     }
 
@@ -45,6 +48,7 @@ public class AudioEventManager : MonoBehaviour
 
 		EventManager.StopListening<OxygenCollisionEvent, Vector3, string> (oxygenCollisionEventListener);
 		EventManager.StopListening<FishCollisionEvent, Vector3, string> (fishCollisionEventListener);
+		EventManager.StopListening<PlayerThreadWaterEvent, Vector3> (playerThreadWaterEventListener);
 
 	}
 
@@ -70,6 +74,11 @@ public class AudioEventManager : MonoBehaviour
 		if (surface == "Player") {
 			AudioSource.PlayClipAtPoint (this.fishAudio, worldPos);
 		}
+	}
+
+	void playerThreadWaterEventHandler(Vector3 worldPos)
+	{
+		AudioSource.PlayClipAtPoint (this.swimAudio, worldPos);
 	}
 
 }

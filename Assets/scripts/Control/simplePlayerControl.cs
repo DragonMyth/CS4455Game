@@ -31,6 +31,9 @@ public class simplePlayerControl : MonoBehaviour {
 	private float turnAngle = 10f;
 	private float turn = 0f;
 
+    private float lastThreadWater = 0f;
+    private float minSwimSeparation = 2f;
+
 	float originalOxyCost;
     float originalSpeed;
 
@@ -93,11 +96,13 @@ public class simplePlayerControl : MonoBehaviour {
             speed = originalSpeed*3;
             GetComponent<PlayerStamina>().SpeedUp();
 			GetComponent <PlayerOxygen>().OxygenCost = originalOxyCost*2;
+            minSwimSeparation = 0.5f;
         } else
         {
             GetComponent<PlayerStamina>().StaminaRegen();
 			GetComponent <PlayerOxygen>().OxygenCost = originalOxyCost;
             speed = originalSpeed;
+            minSwimSeparation = 1.5f;
         }
         anim.SetFloat("Rate", turn * speed * 10);
         // Debug.Log(speed);
@@ -122,7 +127,25 @@ public class simplePlayerControl : MonoBehaviour {
             Time.timeScale = 1f;
         }
 
+        // float swim = anim.GetFloat("swim");
+        // if (swim >= 0.7) {
+        //     threadWater();
+        // }
+        // Debug.Log(swim);
+
     }
+
+
+    public void ThreadWater()
+    {
+        EventManager.TriggerEvent<PlayerThreadWaterEvent, Vector3> (this.transform.position);
+        // if (Time.timeSinceLevelLoad - lastThreadWater > minSwimSeparation) {
+        //     lastThreadWater = Time.timeSinceLevelLoad;
+        //     Debug.Log ("threading water");
+        //     EventManager.TriggerEvent<PlayerThreadWaterEvent, Vector3> (this.transform.position);
+        // }
+    }
+
     public void Pause()
     {
         inGameMenu.SetActive(true);
