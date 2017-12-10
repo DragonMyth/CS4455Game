@@ -7027,7 +7027,7 @@ MonoBehaviour:
   - {fileID: 1780141956089202, guid: 4d3de800604a341658c3ac08cdd8f267, type: 2}
   player: {fileID: 750145633}
   goalPrefab: {fileID: 1508978716900594, guid: 457762c84872a4039996e42530036a64, type: 2}
-  tankSize: 50
+  tankSize: 200
   maxGroup: 20
   numInstance: 1e0000000f00000014000000
 --- !u!4 &1839740499
