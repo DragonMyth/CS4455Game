@@ -911,7 +911,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1282401053
+  randomSeed: -1117159216
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4275,6 +4275,7 @@ GameObject:
   - component: {fileID: 750145643}
   - component: {fileID: 750145645}
   - component: {fileID: 750145646}
+  - component: {fileID: 750145644}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4370,7 +4371,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &750145639
 MonoBehaviour:
@@ -4518,6 +4519,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!64 &750145644
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 750145633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 79905166d11e6744fa6ce55360cc6f12, type: 3}
 --- !u!114 &750145645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5543,7 +5558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1380929633
 RectTransform:
   m_ObjectHideFlags: 0
