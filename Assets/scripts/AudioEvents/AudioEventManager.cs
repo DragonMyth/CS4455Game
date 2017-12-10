@@ -12,6 +12,7 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip eelAudio;
     public AudioClip simpleFishAudio;
     public AudioClip loseScoreAudio;
+    public AudioClip volcanoHurtAudio;
 
 	private UnityAction<Vector3, string> oxygenCollisionEventListener;
 	private UnityAction<Vector3, string> fishCollisionEventListener;
@@ -19,6 +20,10 @@ public class AudioEventManager : MonoBehaviour
     private UnityAction<Vector3, string> simpleFishCollisionEventListener;
     private UnityAction<Vector3, string> eelCollisionEventListener;
     private UnityAction<Vector3, string> loseScoreEventListener;
+    private UnityAction<Vector3, string> volcanoHurtEventListener;
+
+    private float hurtCD = 1f;
+    private float current = 0f;
 
 
     void Awake()
@@ -30,6 +35,7 @@ public class AudioEventManager : MonoBehaviour
         simpleFishCollisionEventListener = new UnityAction<Vector3, string> (simpleFishCollisionEventHandler);
         eelCollisionEventListener = new UnityAction<Vector3, string>(eelCollisionEventHandler);
         loseScoreEventListener = new UnityAction<Vector3, string>(loseScoreEventHandler);
+        volcanoHurtEventListener = new UnityAction<Vector3, string>(volcanoHurtEventHandler);
 
     }
 
@@ -50,6 +56,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<SimpleFishCollisionEvent, Vector3, string>(simpleFishCollisionEventListener);
         EventManager.StartListening<EelCollisionEvent, Vector3, string>(eelCollisionEventListener);
         EventManager.StartListening<LoseScoreEvent, Vector3, string>(loseScoreEventListener);
+        EventManager.StartListening<VolcanoHitEvent, Vector3, string>(volcanoHurtEventListener);
 
     }
 
@@ -62,6 +69,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<SimpleFishCollisionEvent, Vector3, string>(simpleFishCollisionEventListener);
         EventManager.StopListening<EelCollisionEvent, Vector3, string>(eelCollisionEventListener);
         EventManager.StopListening<LoseScoreEvent, Vector3, string>(loseScoreEventListener);
+        EventManager.StopListening<LoseScoreEvent, Vector3, string>(volcanoHurtEventListener);
 
     }
 
@@ -70,6 +78,7 @@ public class AudioEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        current += Time.deltaTime;
     }
 
 
@@ -107,5 +116,14 @@ public class AudioEventManager : MonoBehaviour
     void loseScoreEventHandler(Vector3 worldPos, string surface)
     {
         AudioSource.PlayClipAtPoint(this.loseScoreAudio, worldPos);
+    }
+
+    void volcanoHurtEventHandler(Vector3 worldPos, string surface)
+    {
+        if (current > hurtCD)
+        {
+            AudioSource.PlayClipAtPoint(this.volcanoHurtAudio, worldPos);
+            current = 0f;
+        }
     }
 }

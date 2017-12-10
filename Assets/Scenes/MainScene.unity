@@ -266,6 +266,23 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: 79905166d11e6744fa6ce55360cc6f12, type: 3}
   m_PrefabInternal: {fileID: 1595325007}
+--- !u!114 &223820771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 223820770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641c53364a7d3504088eeebd2d1aae13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingOxygen: 100
+  currentOxygen: 0
+  OxygenSlider: {fileID: 0}
+  OxygenCost: 0.25
+  OxygenLoss: 1
+  UIObj: {fileID: 0}
 --- !u!114 &223820772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,7 +854,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1331140267
+  randomSeed: 2098620099
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5021,6 +5038,7 @@ MonoBehaviour:
   eelAudio: {fileID: 8300000, guid: 7dabae7764e673843822f73ae9f2db02, type: 3}
   simpleFishAudio: {fileID: 8300000, guid: e067cc83b7efaf64a9b768e5ea870204, type: 3}
   loseScoreAudio: {fileID: 8300000, guid: 6844397c036da1e47859df695dd1bc1e, type: 3}
+  volcanoHurtAudio: {fileID: 8300000, guid: d6f5c6f2dda222942b92d3b00d636e4c, type: 3}
 --- !u!4 &1156226630
 Transform:
   m_ObjectHideFlags: 0

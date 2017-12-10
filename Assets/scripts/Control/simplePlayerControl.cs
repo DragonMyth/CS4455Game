@@ -38,6 +38,7 @@ public class simplePlayerControl : MonoBehaviour {
     float originalSpeed;
 
 
+
     // Use this for initialization
 
     GameObject playerObj;
@@ -48,7 +49,7 @@ public class simplePlayerControl : MonoBehaviour {
 		playerObj = transform.GetChild (0).gameObject;
         playerModel = transform.GetChild(1).gameObject;
         anim = playerModel.GetComponent<Animator>();
-		originalOxyCost = GetComponent<PlayerOxygen> ().OxygenCost;
+		originalOxyCost = GetComponent<PlayerOxygen>().OxygenCost;
         originalSpeed = speed;
 		player  = GameObject.FindWithTag ("Player");
         if (anim == null)
@@ -91,7 +92,7 @@ public class simplePlayerControl : MonoBehaviour {
 
 
 
-        if (Input.GetButton("Fire1") && canSpeed) // press fire1 to speed up
+        if (Input.GetButton("Fire1") && canSpeed) // press fire1 to speed up forwarding. Can't do other directions
         {
             speed = originalSpeed*3;
             GetComponent<PlayerStamina>().SpeedUp();

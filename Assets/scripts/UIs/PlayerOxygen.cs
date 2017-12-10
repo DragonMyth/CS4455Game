@@ -13,7 +13,7 @@ public class PlayerOxygen : MonoBehaviour {
     public float OxygenLoss = 1f;
     public GameObject UIObj;
 
-	simplePlayerControl control;
+    simplePlayerControl control;
     //public AudioClip speedClip;
 
     Animator anim;                                              // Reference to the Animator component.
@@ -64,9 +64,11 @@ public class PlayerOxygen : MonoBehaviour {
     }
 
     void OnParticleCollision(GameObject other) {
+        var pos = GameObject.Find("Player").transform.position;
         Debug.Log("decrease health!");
         if (!control.isPaused)
         {
+            EventManager.TriggerEvent<VolcanoHitEvent, Vector3, string>(pos, "Player");
             currentOxygen -= OxygenLoss;
         }
         if (currentOxygen<=0)
