@@ -35,7 +35,14 @@ public class ArticFishGroup : FlockingGroup {
 	{
 
 		GameObject goal = this.currGoal();
-		goal.transform.position = simplePlayerControl.player.transform.position + simplePlayerControl.player.transform.up * 3+simplePlayerControl.player.transform.forward * 7.5f;
+		int side = Random.Range (0, 2);
+		if (side == 0) {
+			goal.transform.position = simplePlayerControl.player.transform.position + simplePlayerControl.player.transform.up * 3+simplePlayerControl.player.transform.forward * 7.5f;
+
+		} else if(side ==1) {
+			goal.transform.position = simplePlayerControl.player.transform.position - simplePlayerControl.player.transform.up * 3+simplePlayerControl.player.transform.forward * 7.5f;
+
+		}
 		goal.transform.position += new Vector3 (Random.Range (-1.5f, 1.5f),
 			Random.Range (-1.5f, 1.5f),
 			Random.Range (-1.5f, 1.5f));	
