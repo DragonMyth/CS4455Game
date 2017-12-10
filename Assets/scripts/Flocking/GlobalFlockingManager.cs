@@ -80,7 +80,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 				toBeDeletedIdx [groupIdx] = 1;
 
 				EventManager.TriggerEvent<FishCollisionEvent, Vector3, string> (player.transform.position, "Player");
-				ScoreManager.score -= flockGroup.groupScore ()/1.5;
+				ScoreManager.score -= flockGroup.groupScore ()/2;
 				Debug.Log ("LOST SCORE!!!!!!!!");
 
 			}
