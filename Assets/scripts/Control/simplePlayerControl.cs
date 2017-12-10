@@ -137,5 +137,9 @@ public class simplePlayerControl : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
+    void OnParticleCollision(GameObject other) {
+        Debug.Log("Hit on volcano!");
+    }
+
 }
 
