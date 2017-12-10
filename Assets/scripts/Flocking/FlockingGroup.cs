@@ -12,45 +12,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FlockingGroup {
-	int fishKindId;
 	int numInstance;
-	Vector3 goalPos;
+	GameObject goalPos;
 	Vector3[] groupFlockSpawnPoints;
 	GameObject[] allFlocks;
 	bool scored;
+	float deletingDist;
 
-	public FlockingGroup(int fishKindId, int numInstance, Vector3 spawnCenter, int spawnRadius){
-		this.fishKindId = fishKindId;
+	public FlockingGroup(int numInstance, GameObject goalObj, float spawnRadius){
 		this.numInstance = numInstance;
-		this.goalPos = spawnCenter;
+		this.goalPos = goalObj;
 		this.groupFlockSpawnPoints = new Vector3[numInstance];
 		this.allFlocks = new GameObject[numInstance];
 		this.scored = false;
-		instantiateFlocks (spawnCenter,spawnRadius);
+		instantiateFlocks (goalObj.transform.position,spawnRadius);
 
 	}
 
 
-	void instantiateFlocks(Vector3 spawnCenter, int spawnRadius){
+	void instantiateFlocks(Vector3 spawnCenter, float spawnRadius){
 		for (int i = 0; i < this.numInstance; i++) {
 			Vector3 spawnPos = spawnCenter + new Vector3 (Random.Range (-spawnRadius, spawnRadius),
-				Random.Range (1, spawnRadius),
+				Random.Range (1.0f, spawnRadius),
 				Random.Range (-spawnRadius, spawnRadius));
 			this.groupFlockSpawnPoints [i] = spawnPos;
 		} 
 
 	}
+		
 
-	public void setGoalPos(Vector3 newGoal){
-
-		this.goalPos = newGoal;
-	}
-
-
-	public Vector3 currGoal(){
+	public GameObject currGoal(){
 		
 		return this.goalPos;
 	}
+		
 
 	public Vector3[] getGroupSpawnPoints(){
 		
@@ -91,4 +86,19 @@ public class FlockingGroup {
 		this.scored = scored;
 	}
 
+	public virtual bool checkTriggerBehaviour(Transform targetTrans){
+		return false;
+	}
+
+	public virtual void triggerBehaviour(){
+		return;
+	}
+
+	public virtual int groupScore(){
+		return 0;
+	}
+
+	public virtual float getDeleteDist(){
+		return deletingDist;
+	}
 }

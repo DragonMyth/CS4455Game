@@ -19,16 +19,22 @@ public class GlobalFlockingManager : MonoBehaviour {
 
 	public static ArrayList allFishGroups;
 
+	/*
+	 * 0: simplefish
+	 * 1: articulatedFish
+	 * 2: Eel
+	 */
 	public GameObject[] allFishKinds;
 
 	public GameObject player;
 
+	public GameObject goalPrefab;
 
 	public int tankSize = 30;
 
 	public int maxGroup = 5;
 
-	public int numInstance = 15;
+	public int[] numInstance = {15,20,25};
 
 
 	int spawnRad = 3;
@@ -60,33 +66,29 @@ public class GlobalFlockingManager : MonoBehaviour {
 
 			float dist = Vector3.Distance (groupCenter, player.transform.position);
 
-//			Debug.Log ("Dist is :" + dist);
-
 			if (dist > tankSize) {
-
-//				Debug.Log ("DElete COntent!!");
 
 				deleteGroupContent (flockGroup);
 				toBeDeletedIdx [groupIdx] = 1;
-			} else if (dist < tankSize && dist > minInteractionDist) {
 
-				//flockGroup.setGoalPos (groupCenter);
-			
-			} else if (dist < minInteractionDist) {
-			
-				flockGroup.setGoalPos (player.transform.position);
 
-//				PlayerOxygen oxygen = player.gameObject.GetComponent<PlayerOxygen> ();
+			} 
 
-//				oxygen.currentOxygen 
-				if(!flockGroup.getScored ()){
-					EventManager.TriggerEvent<FishCollisionEvent, Vector3, string>(player.transform.position, "Player");
-					ScoreManager.score += 100;
-				}
+			if (flockGroup.getScored () && dist>flockGroup.getDeleteDist ()) {
 
-				flockGroup.setScored (true);
+				deleteGroupContent (flockGroup);
+				toBeDeletedIdx [groupIdx] = 1;
+
+				EventManager.TriggerEvent<FishCollisionEvent, Vector3, string> (player.transform.position, "Player");
+				ScoreManager.score -= flockGroup.groupScore ()/1.5;
+				Debug.Log ("LOST SCORE!!!!!!!!");
 
 			}
+
+			if (flockGroup.checkTriggerBehaviour (player.transform)) {
+				flockGroup.triggerBehaviour ();
+			}
+				
 		
 		}
 
@@ -107,28 +109,28 @@ public class GlobalFlockingManager : MonoBehaviour {
 		}
 
 	}
-
-
-
+		
 	void instantiatOneGroup(){
 
 		Vector3 playerPos = player.transform.position;
 
 		Vector3 groupSpawnCenter = playerPos + new Vector3 (Random.Range (-this.tankSize, this.tankSize),
-			Random.Range (1, 5),
+			Random.Range (1.0f, 5.0f),
 			Random.Range (-this.tankSize, this.tankSize));
+		
+		GameObject spawnCenterObj = (GameObject)Instantiate (goalPrefab, groupSpawnCenter, Quaternion.identity);
 
 		int fishKindId = Random.Range (0, this.allFishKinds.Length);
 
 		GameObject flockPrefab = allFishKinds [fishKindId];
 
-		FlockingGroup flockGroup = new FlockingGroup (fishKindId, numInstance, groupSpawnCenter, spawnRad);
+		FlockingGroup flockGroup = FlockingGroupFactory.createGroup (fishKindId, numInstance[fishKindId], spawnCenterObj, spawnRad);
 
 		Vector3[] flockSpawnPos = flockGroup.getGroupSpawnPoints (); 
 
-		GameObject[] flocks = new GameObject[numInstance];
+		GameObject[] flocks = new GameObject[numInstance[fishKindId]];
 
-		for (int i = 0; i < numInstance; i++) {
+		for (int i = 0; i < numInstance[fishKindId]; i++) {
 
 			GameObject flockGo = (GameObject)Instantiate (flockPrefab, flockSpawnPos[i], Quaternion.identity);
 
@@ -152,7 +154,7 @@ public class GlobalFlockingManager : MonoBehaviour {
 			Destroy (go);
 		
 		}
-	
-	
+		Destroy (flockingGroup.currGoal ());
+
 	}
 }

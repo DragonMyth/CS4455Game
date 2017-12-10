@@ -39,6 +39,7 @@ public class simplePlayerControl : MonoBehaviour {
 
     GameObject playerObj;
     GameObject playerModel;
+	public static GameObject player;
 
 	void Start () {
 		playerObj = transform.GetChild (0).gameObject;
@@ -46,6 +47,7 @@ public class simplePlayerControl : MonoBehaviour {
         anim = playerModel.GetComponent<Animator>();
 		originalOxyCost = GetComponent<PlayerOxygen> ().OxygenCost;
         originalSpeed = speed;
+		player  = GameObject.FindWithTag ("Player");
         if (anim == null)
             Debug.Log("Animator could not be found");
     }
@@ -58,16 +60,10 @@ public class simplePlayerControl : MonoBehaviour {
 		float lh = Input.GetAxisRaw("Horizontal");
 		float lv = Input.GetAxisRaw("Vertical");
 
-        //		Vector2 vec = Vector2.ClampMagnitude(new Vector2(lh, lv), 1.0f);
-        //
-        //		lh = vec.x;
-        //		lv = vec.y;
 
-        //		turn = Mathf.Lerp (turn, lh, Time.deltaTime * 5f);
-        //		turnAngle += Time.deltaTime * 10f;
         if( (Mathf.Abs(lh) + Mathf.Abs(lv)) > 0 && turn < 2.0f)
         {
-            turn += 0.1f * (Mathf.Abs(lh) + Mathf.Abs(lv)) * Time.timeScale;
+            turn += 0.03f * (Mathf.Abs(lh) + Mathf.Abs(lv)) * Time.timeScale;
         }
         else if (turn > 0)
         {
@@ -75,7 +71,7 @@ public class simplePlayerControl : MonoBehaviour {
         }
         anim.SetFloat("Rate", turn);
 		//anim.SetFloat ("Turn", turn);
-		Debug.Log (turn);
+//		Debug.Log (turn);
 
 
         if (lh == 0 && lv == 0)
