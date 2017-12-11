@@ -1035,7 +1035,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -777562591
+  randomSeed: 2073298211
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4545,7 +4545,7 @@ MonoBehaviour:
   staminaSlider: {fileID: 1889887746}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
-  speedCost: 0
+  speedCost: 0.3
   speedRecover: 0.5
   isTired: 1
 --- !u!114 &750145642
@@ -4562,8 +4562,8 @@ MonoBehaviour:
   startingOxygen: 100
   currentOxygen: 0
   OxygenSlider: {fileID: 950618776}
-  OxygenCost: 0
-  OxygenLoss: 1
+  OxygenCost: 0.1
+  OxygenLoss: 3
   UIObj: {fileID: 109478625}
 --- !u!82 &750145643
 AudioSource:

@@ -100,7 +100,7 @@ public class AudioEventManager : MonoBehaviour
 
 	void playerThreadWaterEventHandler(Vector3 worldPos)
 	{
-		AudioSource.PlayClipAtPoint (this.swimAudio, worldPos);
+		AudioSource.PlayClipAtPoint (this.swimAudio, worldPos,0.4f);
 	}
 
     void simpleFishCollisionEventHandler(Vector3 worldPos, string surface)
@@ -115,7 +115,7 @@ public class AudioEventManager : MonoBehaviour
 
     void loseScoreEventHandler(Vector3 worldPos, string surface)
     {
-        AudioSource.PlayClipAtPoint(this.loseScoreAudio, worldPos);
+        AudioSource.PlayClipAtPoint(this.loseScoreAudio, worldPos,1.5f);
     }
 
     void volcanoHurtEventHandler(Vector3 worldPos, string surface)
