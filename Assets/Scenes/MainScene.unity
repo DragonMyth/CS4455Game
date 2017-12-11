@@ -4651,9 +4651,9 @@ MeshCollider:
   m_GameObject: {fileID: 750145633}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 79905166d11e6744fa6ce55360cc6f12, type: 3}
@@ -7458,7 +7458,7 @@ MonoBehaviour:
   player: {fileID: 750145633}
   goalPrefab: {fileID: 1508978716900594, guid: 457762c84872a4039996e42530036a64, type: 2}
   tankSize: 100
-  maxGroup: 20
+  maxGroup: 40
   numInstance: 1e0000000f00000014000000
 --- !u!4 &1839740499
 Transform:
