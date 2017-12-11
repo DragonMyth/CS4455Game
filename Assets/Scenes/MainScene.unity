@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4364,17 +4364,15 @@ MonoBehaviour:
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 45
+    m_MinSize: 0
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Back to Menu
-
-'
+  m_Text: Back to Menu
 --- !u!222 &609287774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4870,9 +4868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Replay
-
-'
+  m_Text: Replay
 --- !u!222 &850879027
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5865,12 +5861,12 @@ Prefab:
     - target: {fileID: 224913413677789552, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 439.5
+      value: 459
       objectReference: {fileID: 0}
     - target: {fileID: 224913413677789552, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 214
       objectReference: {fileID: 0}
     - target: {fileID: 224913413677789552, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
