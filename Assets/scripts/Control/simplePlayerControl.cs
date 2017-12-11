@@ -45,6 +45,10 @@ public class simplePlayerControl : MonoBehaviour {
     GameObject playerModel;
 	public static GameObject player;
 
+	void Awake(){
+		Time.timeScale = 1f;
+	}
+
 	void Start () {
 		playerObj = transform.GetChild (0).gameObject;
         playerModel = transform.GetChild(1).gameObject;
