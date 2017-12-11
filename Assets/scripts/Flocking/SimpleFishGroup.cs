@@ -25,6 +25,8 @@ public class SimpleFishGroup : FlockingGroup {
 			}
 
 			base.setScored (true);
+			base.illuminateFlocks ();
+
 			return true;
 
 		} else {

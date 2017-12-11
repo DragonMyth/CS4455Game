@@ -372,7 +372,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257813716969046, guid: fb32b02442f2f4aa5a59e1cc6d0f393e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.7291808
+      value: 271
       objectReference: {fileID: 0}
     - target: {fileID: 4257813716969046, guid: fb32b02442f2f4aa5a59e1cc6d0f393e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -393,16 +393,6 @@ Prefab:
     - target: {fileID: 4257813716969046, guid: fb32b02442f2f4aa5a59e1cc6d0f393e, type: 2}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 65086423070680608, guid: fb32b02442f2f4aa5a59e1cc6d0f393e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65463890063858574, guid: fb32b02442f2f4aa5a59e1cc6d0f393e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb32b02442f2f4aa5a59e1cc6d0f393e, type: 2}
@@ -911,7 +901,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1117159216
+  randomSeed: -777562591
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4928,28 +4918,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968573725}
---- !u!1 &970981882 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1936999469267300, guid: fb32b02442f2f4aa5a59e1cc6d0f393e,
-    type: 2}
-  m_PrefabInternal: {fileID: 267973965}
---- !u!95 &970981883
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 970981882}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4ebea3835a4f14e988e4b5a590196dc8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1050078118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5684,12 +5652,12 @@ Prefab:
     - target: {fileID: 224913413677789552, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 459
+      value: 439.5
       objectReference: {fileID: 0}
     - target: {fileID: 224913413677789552, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 214
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 224913413677789552, guid: 2253d17d99dcfe641b622121863ff680,
         type: 2}
@@ -7280,7 +7248,7 @@ MonoBehaviour:
   - {fileID: 1780141956089202, guid: 4d3de800604a341658c3ac08cdd8f267, type: 2}
   player: {fileID: 750145633}
   goalPrefab: {fileID: 1508978716900594, guid: 457762c84872a4039996e42530036a64, type: 2}
-  tankSize: 200
+  tankSize: 100
   maxGroup: 20
   numInstance: 1e0000000f00000014000000
 --- !u!4 &1839740499
@@ -7534,25 +7502,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d3de800604a341658c3ac08cdd8f267, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2126225873 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1587845617853448, guid: 7058f1a66e60a41638300904d04403ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 1080583296}
---- !u!95 &2126225874
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2126225873}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 60218466ed167409fb6340bfa6a36258, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1

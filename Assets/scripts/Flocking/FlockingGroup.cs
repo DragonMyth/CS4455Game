@@ -101,4 +101,10 @@ public class FlockingGroup {
 	public virtual float getDeleteDist(){
 		return deletingDist;
 	}
+
+	public virtual void illuminateFlocks(){
+		foreach (GameObject flock in allFlocks) {
+			flock.GetComponentInChildren <FollowIllumizateControl>().emmisionOn ();
+		}
+	}
 }

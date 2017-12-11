@@ -133,7 +133,9 @@ public class simplePlayerControl : MonoBehaviour {
         //     threadWater();
         // }
         // Debug.Log(swim);
-
+		if(transform.position.y>20){
+			GetComponent <PlayerOxygen> ().currentOxygen = 0;
+		}
     }
 
 
