@@ -18,7 +18,14 @@ public class TerrainGenerator : MonoBehaviour {
 	public int heightScale = 10;
 
 	public int obstableHeight = 2;
+
+	public Material[] materials= new Material[0];
+
 	void Start () {
+
+		int materialIdx = Random.Range (0, materials.Length-1);
+		GetComponent<Renderer> ().materials[0] = materials[materialIdx];
+
 		Random.InitState (24);
 
 		Mesh mesh = GetComponent <MeshFilter> ().mesh;
