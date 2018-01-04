@@ -22,13 +22,15 @@ public class TerrainGenerator : MonoBehaviour {
 	public Material[] materials= new Material[0];
 
 	void Start () {
-
+		
 		int materialIdx = Random.Range (0, materials.Length-1);
+
 		GetComponent<Renderer> ().materials[0] = materials[materialIdx];
 
 		Random.InitState (24);
 
 		Mesh mesh = GetComponent <MeshFilter> ().mesh;
+
 		Vector3[] vertices = mesh.vertices;
 
 		for (int v = 0; v < vertices.Length; v++) {
@@ -36,12 +38,21 @@ public class TerrainGenerator : MonoBehaviour {
 			int randObstacles = Random.Range (0, 500);
 
 			float obstacle = 1f;
+
 			if (randObstacles < 5) {
+				
 				obstacle = obstableHeight;
+
 			}
+
+
+
 
 			vertices [v].y = Mathf.PerlinNoise ((vertices [v].x + this.transform.position.x) / deltaScale,
 				(vertices [v].z + this.transform.position.z) / deltaScale) * heightScale * obstacle;
+
+
+			
 		}
 
 
